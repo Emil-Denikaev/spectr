@@ -19,7 +19,7 @@ async def list_categories(message: Union[types.Message, types.CallbackQuery], **
     markup = await categories_keyboard()
 
     if isinstance(message, types.Message):
-        await message.answer("У нас есть: ", reply_markup=markup)
+        await message.answer("У нас можно приобрести: ", reply_markup=markup)
 
     elif isinstance(message, types.CallbackQuery):
         call = message
@@ -33,7 +33,7 @@ async def list_subcategories(callback: types.CallbackQuery, category, **kwargs):
 
 async def list_items(callback: types.CallbackQuery, category, subcategory, **kwargs):
     markup = await items_keyboard(category=category, subcategory=subcategory)
-    await callback.message.edit_text("У нас есть: ", reply_markup=markup)
+    await callback.message.edit_text("У нас можно приобрести: ", reply_markup=markup)
 
 
 async def show_item(callback: types.CallbackQuery, category, subcategory, item_id):
