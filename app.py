@@ -2,7 +2,7 @@ from aiogram import executor
 
 from loader import dp
 import middlewares, filters, handlers
-from utils.db_api.data import create_db
+from utils.db_api.dataBase import create_db
 from utils.notify_admins import on_startup_notify
 from utils.set_bot_commands import set_default_commands
 

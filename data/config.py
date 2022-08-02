@@ -1,5 +1,3 @@
-import os
-
 from environs import Env
 
 # Теперь используем вместо библиотеки python-dotenv библиотеку environs
@@ -10,8 +8,8 @@ BOT_TOKEN = env.str("BOT_TOKEN")  # Забираем значение типа s
 ADMINS = env.list("ADMINS")  # Тут у нас будет список из админов
 IP = env.str("ip")  # Тоже str, но для айпи адреса хоста
 
-PGUSER = str(os.getenv("PGUSER"))
-PGPASSWORD = str(os.getenv("PGPASSWORD"))
-DATABASE = str(os.getenv("DATABASE"))
+PGUSER = env.str("PGUSER")
+PGPASSWORD = env.str("PGPASSWORD")
+DATABASE = env.str("DATABASE")
 
-POSTGRESULI = f"postgresql://{PGUSER}:{PGPASSWORD}@{IP}/{DATABASE}"
+POSTGRES_URI = f"postgresql://{PGUSER}:{PGPASSWORD}@{IP}/{DATABASE}"

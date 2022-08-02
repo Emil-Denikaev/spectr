@@ -2,7 +2,7 @@ from typing import List
 
 from sqlalchemy import and_
 
-from utils.db_api.data import db
+from utils.db_api.dataBase import db
 from utils.db_api.models import Item
 
 

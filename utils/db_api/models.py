@@ -1,13 +1,14 @@
-from sqlalchemy import sql, Column, Sequence, Integer
+from sqlalchemy import (Column, Integer, String, Sequence)
 
-from utils.db_api.data import db
+from sqlalchemy import sql
+from utils.db_api.dataBase import db
 
 
 class Item(db.Model):
     __tablename__ = "items"
     query: sql.Select
 
-    id = Column(db.Integer, Sequence("item_id_seq"), primary_key=True)
+    id = Column(db.Integer, Sequence("user_id_seq"), primary_key=True)
     category_code = Column(db.String(20))
     category_name = Column(db.String(20))
 
@@ -19,7 +20,7 @@ class Item(db.Model):
     price = Column(Integer)
 
     def __repr__(self):
-    # Показывает краткое содержимое записи в таблице
+        # Показывает краткое содержимое записи в таблице
         return f"""
     Товар №{self.id} - {self.name}
     Цена {self.price}
