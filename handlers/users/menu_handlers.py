@@ -27,7 +27,7 @@ async def list_categories(message: Union[types.Message, types.CallbackQuery], **
 
 
 async def list_subcategories(callback: types.CallbackQuery, category, **kwargs):
-    markup = await subcategories_keyboard()
+    markup = await subcategories_keyboard(category)
     await callback.message.edit_reply_markup(markup)
 
 
@@ -37,7 +37,7 @@ async def list_items(callback: types.CallbackQuery, category, subcategory, **kwa
 
 
 async def show_item(callback: types.CallbackQuery, category, subcategory, item_id):
-    markup = await item_keyboard(category, subcategory, item_id)
+    markup = item_keyboard(category, subcategory, item_id)
 
     item = await get_item(item_id)
     text = f"Купить {item}"
@@ -53,9 +53,9 @@ async def navigate(call: types.CallbackQuery, callback_data: dict):
 
     levels = {
         "0": list_categories,
-        "1": list_subcategories(),
-        "2": list_items(),
-        "3": show_item()
+        "1": list_subcategories,
+        "2": list_items,
+        "3": show_item
     }
     current_level_function = levels[current_level]
 

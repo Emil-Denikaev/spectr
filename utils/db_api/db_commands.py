@@ -8,8 +8,8 @@ from utils.db_api.models import Item
 
 async def add_item(**kwargs):
     # Добавление товара
-    newitem = await Item(**kwargs).create()
-    return newitem
+    new_item = await Item(**kwargs).create()
+    return new_item
 
 
 async def get_categories() -> List[Item]:
